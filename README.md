@@ -1,4 +1,4 @@
-# Immersion-WotLK
+# Immersion-WotLK-sirus.su
 Immersive questing addon for World of Warcraft (WotLK-3.3.5a Backport)
 
 ![alt tag](https://media.discordapp.net/attachments/1083384675030020186/1111712146292736000/FwgkxQp.png?raw=true&width=696&height=504)
