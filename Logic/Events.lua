@@ -48,7 +48,7 @@ function Events:QUEST_FINISHED(...)
 --		self:OnEvent('GOSSIP_SHOW')
 --		self.TitleButtons:OnEvent('GOSSIP_SHOW')
 --	end
-	if L('hideui') and L('camerarotationenabled') then 
+	if L('hideui') and L('camerarotationenabled') then
 		MoveViewRightStop()
 	end
 end

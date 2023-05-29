@@ -7,13 +7,13 @@ local __inAnims = {
 	frame.TalkBox.MainFrame.Overlay.Glow_TopBar.InAnim,
 	frame.TalkBox.MainFrame.Overlay.Glow_LeftBar.InAnim,
 	frame.TalkBox.MainFrame.Overlay.Glow_RightBar.InAnim,
-	
+
 	frame.TalkBox.MainFrame.Sheen.InAnim,
 	frame.TalkBox.MainFrame.TextSheen.InAnim,
 	frame.TalkBox.MainFrame.Model.InAnim,
 	frame.TalkBox.MainFrame.Model.PortraitBG.InAnim,
 	frame.TalkBox.MainFrame.Indicator.InAnim,
-	
+
 	frame.TalkBox.NameFrame.Name.FadeIn,
 	-- frame.TalkBox.TextFrame.FadeIn,
 	frame.TalkBox.PortraitFrame.FadeIn,

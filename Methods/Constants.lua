@@ -5,7 +5,7 @@
 --	Web:		https://github.com/s0h2x
 
 ---@type table<string, EnumConst>
-EnumConst = {}
+EnumConst = EnumConst or {}
 
 ---@const global
 ---@class quests
