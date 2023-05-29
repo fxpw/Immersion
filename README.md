@@ -27,7 +27,7 @@ Immersion is a replacement for the dated quest & gossip frames. [(full version)]
 #### Files
 <p align="left">
     <a href="https://github.com/fxpw/Immersion/releases/latest">
-    <a href="https://github.com/fxpw/Immersion/releases/download/1.4.14/Immersion.zip">
+    <a href="https://github.com/fxpw/Immersion/releases/latest">
     <img src="https://img.shields.io/github/downloads/fxpw/Immersion/total?label=Download%40latest&style=flat-square&logo=github&logoColor=white"
          alt="Latest">
    <a href="https://github.com/fxpw/Immersion/releases/1.4.14">
