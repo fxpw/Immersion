@@ -26,6 +26,7 @@ Immersion is a replacement for the dated quest & gossip frames. [(full version)]
 
 #### Files
 <p align="left">
+  <img src="https://img.shields.io/github/downloads/s0h2x/Immersion-WotLK/latest/total?label=Download%40latest&style=flat-square&logo=github&logoColor=white"
     <a href="https://github.com/fxpw/Immersion/releases/latest">
     <img src="https://img.shields.io/github/watchers/fxpw/Immersion?style=social"
          alt="Latest">
