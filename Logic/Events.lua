@@ -105,3 +105,16 @@ function Events:ITEM_TEXT_CLOSED()
 	self.itemText = nil
 	self:PlayOutro()
 end
+
+
+function Events:CHAT_MSG_ADDON(...)
+	local msg = select(1,...)
+	if (msg == "ASMSG_TRANSMOGRIFICATION_MENU_OPEN") then
+		API:CloseGossip(...)
+	elseif (msg == "ASMSG_AUCTION_HOUSE_STATUS") then
+		local msg2 = select(2,...)
+		if (string.find(msg2,":3")) then
+			API:CloseGossip(...)
+		end
+	end
+end

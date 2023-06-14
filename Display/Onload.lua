@@ -44,6 +44,8 @@ for _, event in pairs({
 --	'NAME_PLATE_UNIT_REMOVED', 	-- For nameplate mode
 --	ImmersionAPI.IsRetail and 'SUPER_TRACKING_CHANGED',
 --	ImmersionAPI.IsWoW10 and 'PLAYER_INTERACTION_MANAGER_FRAME_SHOW',
+-- sirus add events
+	"CHAT_MSG_ADDON",
 }) do if event then
 		frame:RegisterEvent(event)
 	end
