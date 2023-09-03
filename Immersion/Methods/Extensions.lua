@@ -83,7 +83,7 @@ local FontStringMixin = {}
 function FontStringMixin:IsTruncated()
     local width = self:GetWidth()
     self:SetWidth(width + 10000)
-    local isTruncated = self:GetStringWidth() > self.lengthText
+    local isTruncated = (self:GetStringWidth() or 10) > (self.lengthText or 16)
     self:SetWidth(width)
     return isTruncated
 end
