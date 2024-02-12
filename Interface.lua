@@ -212,12 +212,12 @@ end
 -- Gossip API
 function API:CloseGossip(...)
 	if CloseGossip then return CloseGossip(...) end
-	-- return C_GossipInfo.CloseGossip(...)
+	return C_GossipInfo.CloseGossip(...)
 end
 
 function API:ForceGossip(...)
 	if ForceGossip then return ForceGossip(...) end
-	-- return C_GossipInfo.ForceGossip(...)
+	return C_GossipInfo.ForceGossip(...)
 end
 
 function API:CanAutoSelectGossip(dontAutoSelect)
@@ -232,22 +232,22 @@ end
 
 function API:GetGossipText(...)
 	if GetGossipText then return GetGossipText(...) end
-	-- return C_GossipInfo.GetText()
+	return C_GossipInfo.GetText()
 end
 
 function API:GetNumGossipAvailableQuests(...)
 	if GetNumGossipAvailableQuests then return GetNumGossipAvailableQuests(...) end
-	-- return C_GossipInfo.GetNumAvailableQuests(...)
+	return C_GossipInfo.GetNumAvailableQuests(...)
 end
 
 function API:GetNumGossipActiveQuests(...)
 	if GetNumGossipActiveQuests then return GetNumGossipActiveQuests(...) end
-	-- return C_GossipInfo.GetNumActiveQuests(...)
+	return C_GossipInfo.GetNumActiveQuests(...)
 end
 
 function API:GetNumGossipOptions(...)
 	if GetNumGossipOptions then return GetNumGossipOptions(...) end
-	-- return C_GossipInfo.GetNumOptions(...)
+	return C_GossipInfo.GetNumOptions(...)
 end
 
 function API:GetGossipAvailableQuests(...)
@@ -258,7 +258,7 @@ function API:GetGossipAvailableQuests(...)
 			GetGossipAvailableQuests(...)
 		)
 	end
-	-- return C_GossipInfo.GetAvailableQuests(...)
+	return C_GossipInfo.GetAvailableQuests(...)
 end
 
 function API:GetGossipActiveQuests(...)
@@ -269,7 +269,7 @@ function API:GetGossipActiveQuests(...)
 			GetGossipActiveQuests(...)
 		)
 	end
-	-- return C_GossipInfo.GetActiveQuests(...)
+	return C_GossipInfo.GetActiveQuests(...)
 end
 
 function API:GetGossipOptions(...)
@@ -280,7 +280,7 @@ function API:GetGossipOptions(...)
 			GetGossipOptions(...)
 		)
 	end
-	-- return C_GossipInfo.GetOptions(...)
+	return C_GossipInfo.GetOptions(...)
 end
 
 -- Gossip/quest selectors API
@@ -294,17 +294,17 @@ end
 
 function API:SelectGossipOption(...)
 	if SelectGossipOption then return SelectGossipOption(...) end
-	-- return C_GossipInfo.SelectOption(...)
+	return C_GossipInfo.SelectOption(...)
 end
 
 function API:SelectGossipActiveQuest(...)
 	if SelectGossipActiveQuest then return SelectGossipActiveQuest(...) end
-	-- return C_GossipInfo.SelectActiveQuest(...)
+	return C_GossipInfo.SelectActiveQuest(...)
 end
 
 function API:SelectGossipAvailableQuest(...)
 	if SelectGossipAvailableQuest then return SelectGossipAvailableQuest(...) end
-	-- return C_GossipInfo.SelectAvailableQuest(...)
+	return C_GossipInfo.SelectAvailableQuest(...)
 end
 
 -- Misc

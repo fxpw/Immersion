@@ -289,6 +289,7 @@ function Elements:ShowRewards()
 	local numQuestSpellRewards = 0
 	local totalHeight = 0
 	local GetSpell = GetRewardSpell
+	local knownSpell
 
 	do  -- Get data
 		questID = API:GetQuestID()
@@ -304,9 +305,10 @@ function Elements:ShowRewards()
 	do -- Spell rewards
 		for rewardSpellIndex = 1, numSpellRewards do
 			local texture, name, isTradeskillSpell, isSpellLearned = GetSpell(rewardSpellIndex)
-			local spellID = select(7, GetSpellInfo(name))
-			if spellID then
-				local knownSpell = tonumber(spellID) and IsSpellKnown(spellID)
+            local spellLink = GetSpellLink(name)
+			if spellLink then
+				local spellID = string.match(spellLink, "spell:(%d+)")
+				knownSpell = IsSpellKnown(spellID)
 			end
 
 			-- only allow the spell reward if user can learn it
@@ -319,10 +321,10 @@ function Elements:ShowRewards()
 	local totalRewards = numQuestRewards + numQuestChoices + numQuestSpellRewards
 
 	do -- Check if any rewards are present, break out if none
-		if ( totalRewards == 0 and 
-			money == 0 and 
-			xp == 0 and 
-			not playerTitle and 
+		if ( totalRewards == 0 and
+			money == 0 and
+			xp == 0 and
+			not playerTitle and
 			numQuestSpellRewards == 0 ) then
 
 			return self:Hide()
@@ -337,7 +339,7 @@ function Elements:ShowRewards()
 		end
 	end
 
-	-- Setup locals 
+	-- Setup locals
 	local questItem, name, texture, quality, isUsable, numItems
 	local rewardsCount = 0
 	local lastFrame = self.Header
@@ -372,7 +374,7 @@ function Elements:ShowRewards()
 					local link = GetQuestItemLink(questItem.type, i)
 					vendorValue = link and select(11, GetItemInfo(link))
 				end
-				
+
 				if vendorValue and ( not highestValue or vendorValue > highestValue ) then
 					highestValue = vendorValue
 					if vendorValue > 0 and numQuestChoices > 1 then
@@ -428,10 +430,12 @@ function Elements:ShowRewards()
 			-- Generate spell buckets
 			for rewardSpellIndex = 1, numSpellRewards do
 				local texture, name, isTradeskillSpell, isSpellLearned = GetSpell(rewardSpellIndex)
-				local spellID = select(7, GetSpellInfo(name))
-				if spellID then
-					local knownSpell = IsSpellKnown(spellID)
+				local spellLink = GetSpellLink(name)
+				if spellLink then
+					local spellID = string.match(spellLink, "spell:(%d+)")
+					knownSpell = IsSpellKnown(spellID)
 				end
+
 				if IsValidSpellReward(texture, knownSpell, isBoostSpell, garrFollowerID) then
 					local bucket = 	isTradeskillSpell 	and QUEST_SPELL_REWARD_TYPE_TRADESKILL_SPELL or
 									isBoostSpell 		and QUEST_SPELL_REWARD_TYPE_ABILITY or
