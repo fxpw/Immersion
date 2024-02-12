@@ -44,8 +44,7 @@ for _, event in pairs({
 --	'NAME_PLATE_UNIT_REMOVED', 	-- For nameplate mode
 --	ImmersionAPI.IsRetail and 'SUPER_TRACKING_CHANGED',
 --	ImmersionAPI.IsWoW10 and 'PLAYER_INTERACTION_MANAGER_FRAME_SHOW',
--- sirus add events
-	"CHAT_MSG_ADDON",
+	'CHAT_MSG_ADDON',   -- sirus events
 }) do if event then
 		frame:RegisterEvent(event)
 	end
@@ -54,6 +53,7 @@ end
 
 frame.IgnoreResetEvent = {
 	QUEST_ACCEPTED = true,
+	CHAT_MSG_ADDON = true,
 --	NAME_PLATE_UNIT_ADDED = true,
 --	NAME_PLATE_UNIT_REMOVED = true,
 --	SUPER_TRACKING_CHANGED = true,
@@ -63,6 +63,7 @@ frame.IgnoreGossipEvent = {
 	GOSSIP_SHOW = true,
 	GOSSIP_CLOSED = true,
 	QUEST_ACCEPTED = true,
+	CHAT_MSG_ADDON = true,
 --	NAME_PLATE_UNIT_ADDED = true,
 --	NAME_PLATE_UNIT_REMOVED = true,
 --	SUPER_TRACKING_CHANGED = true,
