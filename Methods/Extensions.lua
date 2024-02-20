@@ -30,7 +30,7 @@ end
 -- Frame Mixin (General)
 ----------------------------------
 local FrameMixin = {}
-FrameMixin.ignoreParent = CreateFrame("Frame", "ImmersionFrame", WorldFrame)
+FrameMixin.ignoreParent = CreateFrame("Frame", "ImmersionIgnoreParent", WorldFrame)
 function FrameMixin:SetShown(shown)
     if shown then
         self:Show()
