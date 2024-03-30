@@ -30,7 +30,7 @@ end
 -- Frame Mixin (General)
 ----------------------------------
 local FrameMixin = {}
-FrameMixin.ignoreParent = CreateFrame("Frame", "ImmersionIgnoreParent", WorldFrame)
+FrameMixin.ignoreParent = CreateFrame("Frame")
 function FrameMixin:SetShown(shown)
     if shown then
         self:Show()
@@ -71,7 +71,9 @@ end
 ---@extension method
 for _, metatable in pairs(TableMixin) do
     for name, func in pairs(FrameMixin) do
-        metatable.__index[name] = func
+        if not metatable.__index[name] then
+            metatable.__index[name] = func
+        end
     end
 end
 ----------------------------------
