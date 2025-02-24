@@ -8,6 +8,10 @@
 local Extension = {}
 local TableMixin = {}
 
+local Ignored_Frames = {
+    HardcoreLossBannerTitle = true,
+}
+
 ---@extension frames
 Extension["Frame"] = CreateFrame("Frame")
 Extension["Button"] = CreateFrame("Button")
@@ -83,6 +87,11 @@ local FontStringMixin = {}
 ---@type<string>
 ---@return isTruncated|boolean
 function FontStringMixin:IsTruncated()
+
+    if Ignored_Frames[self:GetName()] then
+        return false
+    end
+    
     local width = self:GetWidth()
     self:SetWidth(width + 10000)
     local isTruncated = (self:GetStringWidth() or 10) > (self.lengthText or 16)
