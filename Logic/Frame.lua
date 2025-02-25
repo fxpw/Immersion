@@ -2,7 +2,7 @@ local _, L = ...
 local Frame, TalkBox, API, GetTime = {}, {}, ImmersionAPI, GetTime
 
 local WhiteListEvents = {
-    QUEST_COMPLETE = true,
+	QUEST_COMPLETE = true,
     QUEST_DETAIL = true,
     QUEST_ACCEPTED = true,
     ITEM_TEXT_READY = true,
@@ -22,11 +22,12 @@ function Frame:OnEvent(event, ...)
 		event = self[event](self, ...) or event
 	end
 	
-	if WhiteListEvents[event] then
-	    self.TalkBox.lastEvent = event
-	    self.lastEvent = event
+	if not WhiteListEvents[event] then
+		return
     end
 	
+	self.TalkBox.lastEvent = event
+	self.lastEvent = event
     self.timeStamp = GetTime()
 	self:UpdateItems()
 --	self:UpdateBackground()
