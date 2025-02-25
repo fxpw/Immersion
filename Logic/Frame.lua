@@ -1,20 +1,36 @@
 local _, L = ...
 local Frame, TalkBox, API, GetTime = {}, {}, ImmersionAPI, GetTime
 
+local WhiteListEvents = {
+    QUEST_COMPLETE = true,
+    QUEST_DETAIL = true,
+    QUEST_ACCEPTED = true,
+    ITEM_TEXT_READY = true,
+    QUEST_PROGRESS = true,
+	QUEST_ITEM_UPDATE = true,
+	GOSSIP_SHOW = true,
+}
+
 ----------------------------------
 -- Event handler
 ----------------------------------
 function Frame:OnEvent(event, ...)
 	self:ResetElements(event)
 	self:HandleGossipQuestOverlap(event)
+	
 	if self[event] then
 		event = self[event](self, ...) or event
 	end
-	self.TalkBox.lastEvent = event
-	self.lastEvent = event
-	self.timeStamp = GetTime()
+	
+	if WhiteListEvents[event] then
+	    self.TalkBox.lastEvent = event
+	    self.lastEvent = event
+    end
+	
+    self.timeStamp = GetTime()
 	self:UpdateItems()
 --	self:UpdateBackground()
+	
 	return event
 end
 
