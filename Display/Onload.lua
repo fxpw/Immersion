@@ -52,11 +52,16 @@ end
 
 
 frame.IgnoreResetEvent = {
+	QUEST_ITEM_UPDATE = true,
 	QUEST_ACCEPTED = true,
 	CHAT_MSG_ADDON = true,
 --	NAME_PLATE_UNIT_ADDED = true,
 --	NAME_PLATE_UNIT_REMOVED = true,
 --	SUPER_TRACKING_CHANGED = true,
+}
+
+frame.IgnoreLastEvent = {
+	CHAT_MSG_ADDON = true,
 }
 
 frame.IgnoreGossipEvent = {

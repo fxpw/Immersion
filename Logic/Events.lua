@@ -67,13 +67,15 @@ end
 
 
 function Events:QUEST_ITEM_UPDATE()
-	local questEvent = (self.lastEvent ~= 'QUEST_ITEM_UPDATE') and self.lastEvent or self.questEvent
-	self.questEvent = questEvent
+    local questEvent = 
+        (self.lastEvent == "QUEST_ACCEPTED") and "QUEST_DETAIL"  -- Если был QUEST_ACCEPTED → заменяем на QUEST_DETAIL
+        or (self.lastEvent ~= "QUEST_ITEM_UPDATE") and self.lastEvent or self.questEvent -- Иначе старая логика
+    self.questEvent = questEvent
 
-	if questEvent and self[questEvent] then
-		self[questEvent](self)
-		return questEvent
-	end
+    if questEvent and self[questEvent] then
+        self[questEvent](self)
+        return questEvent
+    end
 end
 
 function Events:ITEM_TEXT_BEGIN()
