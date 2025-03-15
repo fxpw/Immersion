@@ -31,7 +31,7 @@ function Events:QUEST_PROGRESS(...) -- special case, doesn't use QuestInfo
 		self.TalkBox:SetExtraOffset((height + 48) * L('elementscale')) 
 		return
 	end
-	self:ResetElements()
+	self:ResetElements('QUEST_PROGRESS')
 end
 
 function Events:QUEST_COMPLETE(...)
@@ -100,14 +100,12 @@ function Events:ITEM_TEXT_READY()
 	self.TalkBox.TextFrame.Text:SetText(self.itemText)
 end
 
-
 function Events:ITEM_TEXT_CLOSED()
 	local time = GetTime()
 	self.lastTextClosed = time
 	self.itemText = nil
 	self:PlayOutro()
 end
-
 
 function Events:CHAT_MSG_ADDON(...)
 	local msg = select(1,...)
