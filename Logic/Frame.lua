@@ -17,7 +17,6 @@ function Frame:OnEvent(event, ...)
 	if self.IgnoreLastEvent[event] then
 		return
     end
-	print(event)
 	self.TalkBox.lastEvent = event
 	self.lastEvent = event
     self.timeStamp = GetTime()
