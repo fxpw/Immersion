@@ -8,6 +8,7 @@ local Frame, TalkBox, API, GetTime = {}, {}, ImmersionAPI, GetTime
 function Frame:OnEvent(event, ...)
 	self:ResetElements(event)
 	self:HandleGossipQuestOverlap(event)
+
 	
 	if self[event] then
 		event = self[event](self, ...) or event
@@ -16,6 +17,7 @@ function Frame:OnEvent(event, ...)
 	if self.IgnoreLastEvent[event] then
 		return
     end
+	print(event)
 	self.TalkBox.lastEvent = event
 	self.lastEvent = event
     self.timeStamp = GetTime()

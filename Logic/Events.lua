@@ -31,7 +31,7 @@ function Events:QUEST_PROGRESS(...) -- special case, doesn't use QuestInfo
 		self.TalkBox:SetExtraOffset((height + 48) * L('elementscale')) 
 		return
 	end
-	self:ResetElements('QUEST_PROGRESS')
+	self:ResetElements('QUEST_PROGRESS_SECOND_RESET')   --чтоб не было nil при пустой передаче в ResetElements + чтобы было другое имя и срабатывало.
 end
 
 function Events:QUEST_COMPLETE(...)
@@ -64,7 +64,6 @@ function Events:QUEST_DETAIL(...)
 	self:UpdateTalkingHead(API:GetTitleText(), API:GetQuestText(), 'AvailableQuest')
 	self:AddQuestInfo('QUEST_DETAIL')
 end
-
 
 function Events:QUEST_ITEM_UPDATE()
     local questEvent = 
