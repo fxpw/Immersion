@@ -192,7 +192,7 @@ local ControllerInput = { -- return true when propagating
 				self.TalkBox.Elements:CompleteQuest()
 			end
 		-- Accept quest
-		elseif ( self.lastEvent == 'QUEST_DETAIL' or self.lastEvent == 'QUEST_ACCEPTED' ) then
+		elseif ( self.lastEvent == 'QUEST_ACCEPTED' ) then
 			self.TalkBox.Elements:AcceptQuest()
 		-- Progress quest (why are these functions named like this?)
 		elseif IsQuestCompletable() then

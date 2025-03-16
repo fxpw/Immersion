@@ -31,7 +31,7 @@ function Events:QUEST_PROGRESS(...) -- special case, doesn't use QuestInfo
 		self.TalkBox:SetExtraOffset((height + 48) * L('elementscale')) 
 		return
 	end
-	self:ResetElements()
+	self:ResetElements('QUEST_PROGRESS_SECOND_RESET')   --чтоб не было nil при пустой передаче в ResetElements + чтобы было другое имя и срабатывало.
 end
 
 function Events:QUEST_COMPLETE(...)
@@ -65,15 +65,16 @@ function Events:QUEST_DETAIL(...)
 	self:AddQuestInfo('QUEST_DETAIL')
 end
 
-
 function Events:QUEST_ITEM_UPDATE()
-	local questEvent = (self.lastEvent ~= 'QUEST_ITEM_UPDATE') and self.lastEvent or self.questEvent
-	self.questEvent = questEvent
+    local questEvent = 
+        (self.lastEvent == "QUEST_ACCEPTED") and "QUEST_DETAIL"  -- Если был QUEST_ACCEPTED → заменяем на QUEST_DETAIL
+        or (self.lastEvent ~= "QUEST_ITEM_UPDATE") and self.lastEvent or self.questEvent -- Иначе старая логика
+    self.questEvent = questEvent
 
-	if questEvent and self[questEvent] then
-		self[questEvent](self)
-		return questEvent
-	end
+    if questEvent and self[questEvent] then
+        self[questEvent](self)
+        return questEvent
+    end
 end
 
 function Events:ITEM_TEXT_BEGIN()
@@ -98,14 +99,12 @@ function Events:ITEM_TEXT_READY()
 	self.TalkBox.TextFrame.Text:SetText(self.itemText)
 end
 
-
 function Events:ITEM_TEXT_CLOSED()
 	local time = GetTime()
 	self.lastTextClosed = time
 	self.itemText = nil
 	self:PlayOutro()
 end
-
 
 function Events:CHAT_MSG_ADDON(...)
 	local msg = select(1,...)

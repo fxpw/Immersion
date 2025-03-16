@@ -112,7 +112,7 @@ function TalkBox:OnLeftClick()
 	if self.lastEvent == 'QUEST_COMPLETE' then
 		self.Elements:CompleteQuest()
 	-- Accept quest
-	elseif self.lastEvent == 'QUEST_DETAIL' or self.lastEvent == 'QUEST_ACCEPTED' then
+	elseif self.lastEvent == 'QUEST_DETAIL' then
 		self.Elements:AcceptQuest()
 	elseif self.lastEvent == 'ITEM_TEXT_READY' then
 		local text = self.TextFrame.Text
