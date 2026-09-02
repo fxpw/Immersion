@@ -46,10 +46,17 @@ end
 function FrameMixin:SetIgnoreParentAlpha(ignore)
     if ignore then
         if (ImmersionFrame.fadeState == "in") then
+            if self:GetParent() ~= self.ignoreParent then
+                self.originalParent = self:GetParent()
+            end
             self:SetParent(self.ignoreParent)
             self.isIgnoring = true
         end
     else
+        if self.isIgnoring and self.originalParent and self:GetParent() == self.ignoreParent then
+            self:SetParent(self.originalParent)
+        end
+        self.originalParent = nil
         self.isIgnoring = false
     end
 end
