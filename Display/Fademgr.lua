@@ -107,8 +107,12 @@ local function RestoreParentFadedFrames(self)
 	local framesToIgnore = GetFramesToIgnore()
 	for frame in pairs(framesToIgnore) do
 		if (frame:GetName() ~= self:GetName()) then
-			if (frame:GetParent() ~= UIParent) then
-				frame:SetParent(UIParent)
+			local home = frame.originalParent
+			if home then
+				if frame:GetParent() ~= home then
+					frame:SetParent(home)
+				end
+				frame.originalParent = nil
 			end
 		end
 	end

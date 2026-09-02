@@ -8,7 +8,7 @@ Immersion is a replacement for the dated quest & gossip frames. [(full version)]
 <details>
   <summary><b>Screenshots:</b> (<i>click to expand</i>)</summary>
 
-  ![alt tag](https://i.imgur.com/Dd6KJRM.png?raw=true&width=516&height=324)
+![alt tag](https://i.imgur.com/Dd6KJRM.png?raw=true&width=516&height=324)
   <p align="center">
     <img src="https://i.imgur.com/Kw6ctXN.png" width="200" title="screenshot_1">
     <img src="https://i.imgur.com/ibFrBFF.png" width="200" alt="screenshot_2">
@@ -21,7 +21,7 @@ Immersion is a replacement for the dated quest & gossip frames. [(full version)]
 #### Options
 - <b>Config</b>: Command used to open configuration ```/immersion```
 - <b>HD Models</b>: If you are using custom patches, enable HD models param in options, this will ensure correct camera positions for some hd models.
-    - :warning: Currently, only patches from author of Assasiinss are supported.
+  - :warning: Currently, only patches from author of Assasiinss are supported.
 - <b>Debug</b>: Enable debugging in options if you find defective behavior of the model in camera frame and attach information from chat for a bug-report.
 
 #### Files
